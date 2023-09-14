@@ -100,20 +100,20 @@ Once the service is started, open your browser and hit `http://localhost:9090/ac
 
 ```json
 {
-    "_links": {
-        "self": {
-            "href": "http://localhost:9090/actuator",
-            "templated": false
-        },
-        "health": {
-            "href": "http://localhost:9090/actuator/health",
-            "templated": false
-        },
-        "health-path": {
-            "href": "http://localhost:9090/actuator/health/{*path}",
-            "templated": true
-        }
+  "_links": {
+    "self": {
+      "href": "http://localhost:9090/actuator",
+      "templated": false
+    },
+    "health": {
+      "href": "http://localhost:9090/actuator/health",
+      "templated": false
+    },
+    "health-path": {
+      "href": "http://localhost:9090/actuator/health/{*path}",
+      "templated": true
     }
+  }
 }
 ```
 
