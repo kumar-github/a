@@ -4,6 +4,14 @@
 
 This project will help you in understanding **Spring Boot Actuator** module step by step. Each concept is covered in-depth and organized as individual git commits. The commits are numbered sequentially starting from `00`, `01`, `02` and so on. You can clone the entire project to your local machine and then start applying commits one by one starting from `00`. This `README.md` file will be updated in every commit and will tell you what has been covered in the specific commit.
 
+<br/>
+
+---
+---
+---
+
+<br/>
+
 ## Run Locally
 
 Clone the project
@@ -27,9 +35,7 @@ Start the service
 <br/>
 
 ---
-
 ---
-
 ---
 
 <br/>
@@ -42,6 +48,14 @@ Actuator endpoints let you monitor and interact with your application. Spring Bo
 You can *enable* or *disable* each individual endpoint and *expose* them (make them remotely accessible) over **HTTP** or **JMX**. An endpoint is considered to be *available* when it is both *enabled* and *exposed*. The built-in endpoints are auto-configured only when they are available. Most applications choose exposure over HTTP, where the `ID` of the endpoint and a prefix of `/actuator` is mapped to a URL.
 For example, by default, the health endpoint is mapped to `/actuator/health`.
 
+<br/>
+
+---
+---
+---
+
+<br/>
+
 ## Complete Reference
 
 [Spring Boot Actuator Reference](https://docs.spring.io/spring-boot/docs/current/reference/html/actuator.html)
@@ -49,9 +63,7 @@ For example, by default, the health endpoint is mapped to `/actuator/health`.
 <br/>
 
 ---
-
 ---
-
 ---
 
 <br/>
@@ -74,6 +86,8 @@ Exposing 1 endpoint(s) beneath base path '/actuator'
 
 <br/>
 
+---
+---
 ---
 
 <br/>
