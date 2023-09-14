@@ -121,7 +121,7 @@ The `health` endpoint is the only one that is exposed by default over **HTTP**. 
 
 ```json
 {
-    "status": "UP"
+  "status": "UP"
 }
 ```
 *Note: Though the `health` endpoint is exposed, it is not giving all the details except the status of the service. We will tweak this in a moment to provide more details.*
