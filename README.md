@@ -1,3 +1,15 @@
+| **Agenda for this commit**                                       | Covered? |
+| ---------------------------------------------------------------- | :--: |
+| 1. Project creation with needed dependencies. | :white_check_mark: |
+| 2. Observe actuator related console log. | :white_check_mark: |
+| 3. Hit the actuator endpoint over HTTP. | :white_check_mark: |
+| 4. Talk about Health endpoint. | :white_check_mark: |
+| 5. Access JMX endpoints using jconsole. | :white_check_mark: |
+| 6. Talk about Shutdown endpoint. | :white_check_mark: |
+| 7. Talk about Info endpoint. | :white_check_mark: |
+| 8. Talk about Sessions endpoint. | :white_check_mark: |
+
+
 # Spring Boot Actuator
 
 > **Every day is a learning day.**
@@ -79,6 +91,16 @@ For example, by default, the health endpoint is mapped to `/actuator/health`.
 ## Commit-00 :sparkles:
 
 *This is the Initial Commit.*
+
+### Agenda
+1. Project creation with needed dependencies. :white_check_mark:
+2. Observe actuator related console log. :white_check_mark:
+3. Hit the actuator endpoint over HTTP. :white_check_mark:
+4. Talk about Health endpoint. :white_check_mark:
+5. Access JMX endpoints using jconsole. :white_check_mark:
+6. Talk about Shutdown endpoint. :white_check_mark:
+7. Talk about Info endpoint. :white_check_mark:
+8. Talk about Sessions endpoint. :white_check_mark:
 
 We have created a spring boot project via [Spring Initializr](https://start.spring.io/) with below dependencies.
 
