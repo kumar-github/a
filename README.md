@@ -96,7 +96,7 @@ But we can find the below line logged in the console which is the proof that act
 Exposing 1 endpoint(s) beneath base path '/actuator'
 ```
 
-Once the service is started, open your browser and hit `http://localhost:9090/actuator`. You will be seeing a response that is similar to this
+Once the service is started, open your browser and hit `http://localhost:9090/actuator`. You will be getting a response that is similar to this
 
 ```json
 {
@@ -117,14 +117,13 @@ Once the service is started, open your browser and hit `http://localhost:9090/ac
 }
 ```
 
-The `health` endpoint is the only one that is exposed by default over **HTTP**. Though the other endpoints are enabled, they are not exposed over **HTTP** (but exposed over **JMX**) because of security reasons. You can access the `health` endpoint by clicking the link or hitting `http://localhost:9090/actuator/health` which will give you the below response.
+The `health` endpoint is the only one that is exposed by default over **HTTP**. Though the other endpoints are enabled, they are **not exposed** over ***HTTP*** (but ***exposed*** over **JMX**) because of security reasons. You can access the `health` endpoint by clicking the link or hitting `http://localhost:9090/actuator/health` which will give you the below response.
 
 ```json
 {
     "status": "UP"
 }
 ```
-
 *Note: Though the `health` endpoint is exposed, it is not giving all the details except the status of the service. We will tweak this in a moment to provide more details.*
 
 Besides, you can access all the endpoints over **JMX** using `jconsole` from your `Terminal`.
@@ -133,23 +132,17 @@ Besides, you can access all the endpoints over **JMX** using `jconsole` from you
 
 ![Endpoints Over JMX](https://github.com/kumar-github/a/assets/2657313/74c5e7ff-f7ab-4798-99e9-56f1da28bc16)
 
-You can access the individual endpoints like `beans`, `health`, `info` here.
+You can access the individual endpoints like `beans`, `health`, `info` etc here.
 
 *Note: In future, if you add any new dependencies to the project and that dependency happens to expose any management endpoint, then it should automatically appear here. We will try the same with `spring-session-core` dependency later.*
 
 *Note: The `shutdown` endpoint is also exposed here by default. But in **HTTP** we need to enable and expose it manually.*
 
-*Note: Spend some time exploring few endpoints like `beans`, `health`, `info` etc*
+*Note: Spend some time exploring few endpoints like `beans`, `health`, `info` etc.*
 
-*Note: The `info` endpoint does not return any information at the moment but we are going to fix it soon.* 
+*Note: The `info` endpoint does not return any information at the moment but we are going to fix it soon.*
 
-
-
-
-
-
-
-
+**Any Questions**:question:
 
 <br/>
 
