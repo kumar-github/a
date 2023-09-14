@@ -131,10 +131,7 @@ Besides, you can access all the endpoints over **JMX** using `jconsole` from you
 
 *Note: Compared to **HTTP**, **JMX** is considered to be secure and all the endpoints are exposed by default. Below is the sample screenshot of the endpoints exposed via **JMX**.*
 
-<img width="1811" alt="Endpoints Over JMX" src="https://github.com/kumar-github/a/assets/2657313/62f0df6b-5ca0-4b16-b6e2-6e6800944dab">
-
-![image](https://github.com/kumar-github/a/assets/2657313/74c5e7ff-f7ab-4798-99e9-56f1da28bc16)
-
+![Endpoints Over JMX](https://github.com/kumar-github/a/assets/2657313/74c5e7ff-f7ab-4798-99e9-56f1da28bc16)
 
 You can access the individual endpoints like `beans`, `health`, `info` here.
 
