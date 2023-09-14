@@ -34,8 +34,6 @@ Start the service
 
 <br/>
 
-This project will help you in understanding **Spring Boot Actuator** module step by step. Each concept is covered in-depth and organized as individual git commits. The commits are numbered sequentially starting from `00`, `01`, `02` and so on. You can clone the entire project to your local machine and then start applying commits one by one starting from `00`. This `README.md` file will be updated in every commit and will tell you what is covered in the specific commit.
-
 ## Few things about Spring Boot Actuator
 
 *Spring Boot Actuator* module helps you monitor and manage your application. You can choose to manage and monitor your application by using **HTTP** endpoints or with **JMX**.
