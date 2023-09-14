@@ -7,7 +7,9 @@ This project will help you in understanding **Spring Boot Actuator** module step
 <br/>
 
 ---
+
 ---
+
 ---
 
 <br/>
@@ -35,7 +37,9 @@ Start the service
 <br/>
 
 ---
+
 ---
+
 ---
 
 <br/>
@@ -51,7 +55,9 @@ For example, by default, the health endpoint is mapped to `/actuator/health`.
 <br/>
 
 ---
+
 ---
+
 ---
 
 <br/>
@@ -63,7 +69,9 @@ For example, by default, the health endpoint is mapped to `/actuator/health`.
 <br/>
 
 ---
+
 ---
+
 ---
 
 <br/>
@@ -74,7 +82,11 @@ For example, by default, the health endpoint is mapped to `/actuator/health`.
 
 We have created a spring boot project via [Spring Initializr](https://start.spring.io/) with below dependencies.
 
-`spring-boot-starter-web`, `spring-boot-starter-actuator`, `spring-boot-devtools`
+1. `spring-boot-starter-web`
+2. `spring-boot-starter-actuator`
+3. `spring-boot-devtools`
+
+*Note: `spring-boot-devtools` is not mandatory but i am using here because of the live reload feature which will save some development time.*
 
 At this point, the application can be started and accessed on `http://localhost:9090`. Though accessing `http://localhost:9090` will give you a `Whitelabel Error Page` but that is understandable since we did not map any controller to handle the request.
 
@@ -84,137 +96,70 @@ But we can find the below line logged in the console which is the proof that act
 Exposing 1 endpoint(s) beneath base path '/actuator'
 ```
 
+Once the service is started, open your browser and hit `http://localhost:9090/actuator`. You will be seeing a response that is similar to this
+
+```json
+{
+    "_links": {
+        "self": {
+            "href": "http://localhost:9090/actuator",
+            "templated": false
+        },
+        "health": {
+            "href": "http://localhost:9090/actuator/health",
+            "templated": false
+        },
+        "health-path": {
+            "href": "http://localhost:9090/actuator/health/{*path}",
+            "templated": true
+        }
+    }
+}
+```
+
+The `health` endpoint is the only one that is exposed by default over **HTTP**. Though the other endpoints are enabled, they are not exposed over **HTTP** (but exposed over **JMX**) because of security reasons. You can access the `health` endpoint by clicking the link or hitting `http://localhost:9090/actuator/health` which will give you the below response.
+
+```json
+{
+    "status": "UP"
+}
+```
+
+*Note: Though the `health` endpoint is exposed, it is not giving all the details except the status of the service. We will tweak this in a moment to provide more details.*
+
+Besides, you can access all the endpoints over **JMX** using `jconsole` from your `Terminal`.
+
+*Note: Compared to **HTTP**, **JMX** is considered to be secure and all the endpoints are exposed by default. Below is the sample screenshot of the endpoints exposed via **JMX**.*
+
+<img width="1811" alt="Endpoints Over JMX" src="https://github.com/kumar-github/a/assets/2657313/62f0df6b-5ca0-4b16-b6e2-6e6800944dab">
+
+![image](https://github.com/kumar-github/a/assets/2657313/74c5e7ff-f7ab-4798-99e9-56f1da28bc16)
+
+
+You can access the individual endpoints like `beans`, `health`, `info` here.
+
+*Note: In future, if you add any new dependencies to the project and that dependency happens to expose any management endpoint, then it should automatically appear here. We will try the same with `spring-session-core` dependency later.*
+
+*Note: The `shutdown` endpoint is also exposed here by default. But in **HTTP** we need to enable and expose it manually.*
+
+*Note: Spend some time exploring few endpoints like `beans`, `health`, `info` etc*
+
+*Note: The `info` endpoint does not return any information at the moment but we are going to fix it soon.* 
+
+
+
+
+
+
+
+
+
 <br/>
 
 ---
+
 ---
+
 ---
 
 <br/>
-
-## Commit-01 :sparkles:
-
-### Customizing the Management Server Port
-
-By default management endpoints are exposed on the same HTTP port in which the service is running. But it is possible to expose the management endpoints on a different HTTP port, using the `management.server.port` property as below.
-
-```properties
-management.server.port=9123
-```
-
-### Customizing the Management Endpoint Paths
-
-Sometimes, it is useful to customize the prefix for the management endpoints. For example, our application might already use `/actuator` for another purpose. We can use the `management.endpoints.web.base-path` property to change the prefix for the management endpoint as  below.
-
-```properties
-management.endpoints.web.base-path=/admin
-```
-
-### Customizing JMX Domain
-
-By default, Spring Boot exposes all management endpoints as **JMX** MBeans under the `org.springframework.boot` (except `shutdown`) domain. You can customize the **JMX** domain under which endpoints are exposed using the `management.endpoints.jmx.domain` property as below.
-
-```properties
-management.endpoints.jmx.domain=tech.badprogrammer.app
-```
-
-### Enabling/Disabling Endpoints
-
-#### Enabling Endpoints
-
-By default all management endpoints are **enabled** (except `shutdown`). You don't have to do anything extra to enable them. To enable the `shutdown` endpoint, use the `management.endpoint.shutdown.enabled` property as below
-
-~~~properties
-management.endpoint.shutdown.enabled=true
-~~~
-
-#### Disabling Endpoints
-
-##### Disabling Individual Endpoints
-
-If you want to disable an individual endpoint, you can use the respective `management.endpoint.<ENDPOINT_ID>.enabled` property as below.
-
-~~~properties
-management.endpoint.health.enabled=false
-management.endpoint.info.enabled=false
-~~~
-
-##### Disabling All Endpoints
-
-If you want to disable all the endpoints, you can use the `management.endpoints.enabled-by-default` property as below.
-
-~~~properties
-management.endpoints.enabled-by-default=false
-~~~
-
-*Note: A **disabled** endpoint will not be exposed neither over **JMX** nor over **HTTP**.*
-
-
-
-### Exposing/Hiding JMX Endpoints
-
-#### Exposing JMX Endpoints
-
-All **enabled** endpoints are by default **exposed** over **JMX**. You don't have to do anything extra.
-
-#### Hiding (Not Exposing) JMX Endpoints
-
-##### Hiding Individual JMX Endpoints
-
-If you want to hide (not expose) an individual endpoint over **JMX**, use the `management.endpoints.jmx.exposure.exclude` property as below.
-
-~~~properties
-management.endpoints.jmx.exposure.exclude=health,info
-~~~
-
-##### Hiding All JMX Endpoints
-
-If you want to hide (not expose) all endpoints over **JMX**, use the `management.endpoints.jmx.exposure.exclude` property as below.
-
-~~~properties
-management.endpoints.jmx.exposure.exclude=*
-~~~
-
-### Exposing/Hiding HTTP Endpoints
-
-#### Exposing HTTP Endpoints
-
-Although the endpoints are **enabled** by default, they are not exposed over **HTTP** like **JMX**.
-
-##### Exposing Individual HTTP Endpoints
-
-An (*enabled*) endpoint can be exposed over **HTTP** by using the `management.endpoints.web.exposure.include` property as below.
-
-~~~properties
-management.endpoints.web.exposure.include=health,info
-~~~
-
-##### Exposing All HTTP Endpoints
-
-If you want to expose all the (*enabled*) endpoints over **HTTP**, use the `management.endpoints.web.exposure.include` property as below.
-
-~~~properties
-management.endpoints.web.exposure.include=*
-~~~
-
-#### Hiding HTTP Endpoints
-
-##### Hiding Individual HTTP Endpoints
-
-If you want to hide (not expose) individual endpoints over **HTTP**, use the `management.endpoints.web.exposure.exclude` property as below.
-
-~~~properties
-management.endpoints.web.exposure.exclude=health,info
-~~~
-
-##### Hiding All HTTP Endpoints
-
-If you want to hide (not expose) all endpoints over **HTTP**, use the `management.endpoints.web.exposure.exclude` property as below.
-
-~~~properties
-management.endpoints.web.exposure.exclude=*
-~~~
-
-Note: Both `management.endpoints.web.exposure.exclude` and `management.endpoints.web.exposure.include` properties can be used together to have more fine-grained control over exposing and hiding endpoints.
-
-Note: `management.endpoints.web.exposure.exclude` takes more priority over `management.endpoints.web.exposure.include` if used together. *For example*, you can use `management.endpoints.web.exposure.include=*` to expose all the endpoints and use `management.endpoints.web.exposure.exclude=health,info` to hide specifically `health` and `info`.
