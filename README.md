@@ -134,8 +134,6 @@ Besides, you can access all the endpoints over **JMX** using `jconsole` from you
 
 You can access the individual endpoints like `beans`, `health`, `info` etc here.
 
-*Note: In future, if you add any new dependencies to the project and that dependency happens to expose any management endpoint, then it should automatically appear here. We will try the same with `spring-session-core` dependency later.*
-
 *Note: The `shutdown` endpoint is also exposed here by default. But in **HTTP** we need to enable and expose it manually.*
 
 *Note: Spend some time exploring few endpoints like `beans`, `health`, `info` etc.*
