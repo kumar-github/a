@@ -42,7 +42,7 @@ Start the service
 
 ## Few things about Spring Boot Actuator
 
-*Spring Boot Actuator* module helps you monitor and manage your application. You can choose to manage and monitor your application by using **HTTP** endpoints or with **JMX**. Actuator endpoints let you monitor and interact with your application. Spring Boot includes a number of built-in endpoints and lets you add your own.
+*Spring Boot Actuator* module helps you monitor and manage and interact with your application. You can choose to manage and monitor your application using **HTTP** endpoints or with **JMX**. Spring Boot includes a number of built-in endpoints and lets you add your own.
 
 You can *enable* or *disable* each individual endpoint and *expose* them (make them remotely accessible) over **HTTP** or **JMX**. An endpoint is considered to be *available* when it is both *enabled* and *exposed*. The built-in endpoints are auto configured only when they are available. Most applications choose exposure over HTTP, where the `ID` of the endpoint and a prefix of `/actuator` is mapped to a URL.
 For example, by default, the health endpoint is mapped to `/actuator/health`.
@@ -75,15 +75,15 @@ For example, by default, the health endpoint is mapped to `/actuator/health`.
 
 *This is the Initial Commit.*
 
-| **Agenda for this commit**                    | Covered?           |
-| ----------------------------------------------| :--:               |
-| 1. Project creation with needed dependencies. | :white_check_mark: |
-| 2. Observe actuator related console log.      | :white_check_mark: |
-| 3. Hit the actuator endpoint over HTTP.       | :white_check_mark: |
-| 4. Talk about Health endpoint.                | :white_check_mark: |
-| 5. Access JMX endpoints using jconsole.       | :white_check_mark: |
-| 6. Talk about Shutdown endpoint.              | :white_check_mark: |
-| 7. Talk briefly about Info endpoint.          | :white_check_mark: |
+| **Agenda for this commit**                                    | Covered?           |
+| ----------------------------------------------                | :--:               |
+| 1. Project creation with needed dependencies.                 | :white_check_mark: |
+| 2. Observe actuator related console log.                      | :white_check_mark: |
+| 3. Hit the actuator endpoints over **HTTP**.                  | :white_check_mark: |
+| 4. Talk about `Health` endpoint.                              | :white_check_mark: |
+| 5. Access the actuator endpoints over **JMX** using jconsole. | :white_check_mark: |
+| 6. Talk about `Shutdown` endpoint.                            | :white_check_mark: |
+| 7. Talk briefly about `Info` endpoint.                        | :white_check_mark: |
 
 We have created a spring boot project via [Spring Initializr](https://start.spring.io/) with below dependencies.
 
